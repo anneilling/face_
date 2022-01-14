@@ -2,9 +2,9 @@ from tkinter import *
 
 def lisa_nina():
     if var_nina.get()=="Nina":
-        c.create_oval((225, 225, 275, 275), fill="crimson", outline="black") #нос
+        c.create_oval((225, 245, 275, 305),width=3, fill="crimson", outline="black") #нос
     elif var_nina.get()=="tühi":
-        c.create_oval((225, 225, 275, 275), fill="thistle", outline="thistle") #нос
+        c.create_oval((225, 225, 275, 275),width=3, fill="thistle", outline="thistle") #нос
 def lisa_suu():
     if var_suu.get()=="Suu":
         c.create_arc((100, 300, 400,400),start=180,extent=180, style=ARC, fill="black",width=10, outline="black")
@@ -12,21 +12,26 @@ def lisa_suu():
         c.create_arc((100, 300, 400,400),start=180,extent=180, style=ARC,   fill="thistle",width=10, outline="thistle")
 def lisa_eyes():
     if var_eyes.get()=="Silmad":
-        c.create_oval((300, 100, 400, 200), fill="whitesmoke", outline="black") #првый глаз
+        c.create_oval((300, 100, 400, 200), fill="whitesmoke",width=3, outline="black") #првый глаз
         c.create_oval((375, 175, 325, 125), fill="black", outline="black") #првый глаз
-        c.create_oval((200, 200, 100, 100), fill="whitesmoke", outline="black") #левый глаз
+        c.create_oval((200, 200, 100, 100), fill="whitesmoke",width=3, outline="black") #левый глаз
         c.create_oval((125, 125, 175, 175), fill="black", outline="black") #првый глаз
     elif var_eyes.get()=="tühi":
         c.create_oval((300, 100, 400, 200),  fill="thistle", outline="thistle") #првый глаз
         c.create_oval((200, 200, 100, 100),  fill="thistle", outline="thistle") #левый глаз
 def lisa_nao():
     if var_nao.get()=="Nägu":
-        c.create_oval((10, 10, 490, 490), fill="lavender", outline="black") #лицо
+        c.create_oval((10, 10, 490, 490),width=5, fill="lavender", outline="black") #лицо
     elif var_nao.get()=="tühi":
-        c.create_oval((10, 10, 490, 490), fill="thistle", outline="thistle") #лицо
+        c.create_oval((10, 10, 490, 490),width=5, fill="thistle", outline="thistle") #лицо
+def lisa_sunnimark():
+    if var_sunnimark.get()=="Sünnimärk":
+        c.create_oval((300, 300, 315, 315),width=3, fill="sienna", outline="black") #родинка
+    elif var_sunnimark.get()=="tühi":
+        c.create_oval((300, 300, 315, 315),width=3, fill="thistle", outline="thistle") 
 aken=Tk()
 aken.title("Face")
-aken.geometry('800x600')
+aken.geometry('1000x500')
 aken.configure(bg="mediumslateblue")
 aken.grab_set()
 lbl=Label(aken,text="<3",height=2,width=30,font="Arial 20",fg="blueviolet",bg="aliceblue",relief=GROOVE)    
@@ -43,7 +48,9 @@ ch_eyes.pack(side=RIGHT)
 var_nao=StringVar()
 ch_nao=Checkbutton(aken,text="Nägu", variable=var_nao, onvalue="Nägu", offvalue="tühi",bg="lightsteelblue",command=lisa_nao)
 ch_nao.pack(side=RIGHT)
-
+var_sunnimark=StringVar()
+ch_sunnimark=Checkbutton(aken,text="Sünnimärk", variable=var_sunnimark, onvalue="Sünnimärk", offvalue="tühi",bg="lightsteelblue",command=lisa_sunnimark)
+ch_sunnimark.pack(side=RIGHT)
 c.pack(side=RIGHT)
 lbl.pack()
 aken.mainloop()
